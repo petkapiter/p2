@@ -1,9 +1,8 @@
-i = 0
-while i < 5:
-    if i == 3:
-        break
-    else:
-        print(i)
-        i += 1
-else:
-    print('Конец')
+try:
+    a = input("Введите a:")
+    b = input("Введите b:")
+    print("Результат:", int(a)/int(b))
+except ValueError:
+    print("Пожалуйста, вводите только числа")
+except ZeroDivisionError:
+    print("На ноль делить нельзя")
