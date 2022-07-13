@@ -1,13 +1,12 @@
-access_template = ['switchport mode access',
-                    'switchport access vlan',
-                    'spanning-tree portfast',
-                    'spanning-tree bpduguard enable']
+username = input('Введите имя пользователя: ')
+password = input('Введите парлоль: ')
 
-access = {'0/12': 10, '0/14': 11, '0/16': 17, '0/17': 150}
-for intf, vlan in access.items():
-    print('interface Fa' +intf)
-    for command in access_template:
-        if command.endswith('access vlan'):
-            print(' {} {}'.format(command,vlan))
-        else:
-            print(' {}'.format(command))
+password_correct = False
+
+while not password_correct:
+    if len(password) < 8:
+        print('Пароль слишком короткий\n')
+        password = input('Введите парлоль: ')
+    else:
+        print(f'Пароль для пользователя {username} установлен')
+        password_correct = True
